@@ -1,6 +1,10 @@
 # lc_autolfs
 scripting the lfs package installations
 
+# INSTALLATION
+in $LFS/sources
+git clone https://github.com/krunch3r76/lc_autolfs
+
 # USAGE
 in chroot environment, first set up your environment by sourcing s_f in /sources/lc_autolfs
 then cd to /sources
