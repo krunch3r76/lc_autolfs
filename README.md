@@ -3,13 +3,16 @@ scripting the lfs package installation
 
 or scripting the lfs book package installation instructions
 
-one problem i have had when installing lfs packages is keeping track or ensuring i ran every command. i wrote a small group of short scripts (short and sweet to audit) to help with this. with my tools, you can review just the commands run or the commands run and their output. you can review the packages installed and in what order (useful if you think you missed one). package names follow the directory name so you can add pass 1 pass 2 etc to whatever you untar. please see the video demo
+one problem i have had when installing lfs packages is keeping track or ensuring i ran every command. i wrote a small group of short scripts (short and sweet to audit) to help with this. with my tools, you can review just the commands run with their exit status or all the commands run with their complete output. you can review the packages installed and in what order (useful if you think you missed one). package names follow the directory name so you can add pass 1 pass 2 etc to whatever you untar. please see the video demo
 
 special sauce: if you are in the middle of an lfs install you can pick right up with this!
 
 note these scripts are pertinent to installing an lfs base system. there will be a separate repo for blfs in the future.
 
 additionally, once you have written the commands, you can sit back or leave the terminal and review later, they will run by themselves without intervention after a short timeout.
+
+# SUMMARY
+lfs book instructions can be read and then copied and pasted into grouped statements. these are run as if the commands were entered in the source directory of the package (i.e. as if they were entered by hand). the whole process is observed on the outside looking in (cheers Leary). it output is saved in a directory under /sources -> /sources/cmds/<pkg-name>. read on for more details.
 
 # REQUIREMENTS
 the **script** binary (_/usr/bin/script_) from your host should be copied to lfs chroot env and placed in the path at _/sources/bin/_ (**make this directory**)
@@ -129,7 +132,6 @@ see video more added soon
 
 # USAGE NOTES
 after setting up the build environment, it is okay to mv the cmds directory to cmds_build or whatever so that a new cmds directory is used for the next stage (to avoid package name conflicts and retain logs)
-
 
 
 
