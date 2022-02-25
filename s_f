@@ -1,0 +1,14 @@
+#!/bin/bash
+# s_f
+# load environment functions and variables pertinent to running cmds
+export MAKEFLAGS=-j7
+function mklfscmd {
+# read the pkgname from the current directory and create
+# cmd directory then cd
+set -C
+pkgname=$(basename $PWD)
+mkdir -pv $LFS/sources/cmds/$pkgname
+cp $LFS/sources/lc_autolfs/cmdskeleton/* $LFS/sources/cmds/$pkgname
+mkdir $LFS/sources/cmds/$pkgname/.cmds
+cd $LFS/sources/cmds/$pkgname/.cmds
+}
