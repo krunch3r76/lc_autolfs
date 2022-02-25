@@ -24,7 +24,7 @@ untar the package
 rename package directory if desired
 enter the package directory
 run the environment function (sourced from s_f) mklfscmd
-this will move you into a .cmds directory in a separate directory /sources/cmds (made if needed)
+this will change your directory into a .cmds directory in a separate directory /sources/cmds/<pkg dir name> (made if needed)
 cat the commands from the instructions, categorized as follows:
 each patch command is:
 cat >patchcmd1 ... 2,3,4,...
