@@ -18,6 +18,7 @@ the source tarbells have been downloaded into /sources (e.g. via the wget script
 
 # INSTALLATION
 use $LFS/sources as the directory in which you wget all the tarbells
+
 now, in $LFS/sources (not in chroot)
 ```bash
 git clone https://github.com/krunch3r76/lc_autolfs
