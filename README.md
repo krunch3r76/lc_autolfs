@@ -116,6 +116,9 @@ user.* -/var/log/user.log
 # End /etc/syslog.conf
 EOF
 ^D
+
+(lfs chroot) root:/sources/cmds/sysklogd-1.5.1/.cmds# cd ..
+(lfs chroot) root:/sources/cmds# ./install.sh # git should have preserved executable permissions if not chmod +x
 ```
 see video more added soon
 
