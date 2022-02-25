@@ -17,7 +17,8 @@ lfs book instructions can be read and then copied and pasted into grouped statem
 # REQUIREMENTS
 the **script** binary (_/usr/bin/script_) from your host should be copied to lfs chroot env and placed in the path at _/sources/bin/_ (**make this directory**)
 however, if _/sources/bin/_ does not exist, but **script** has been copied into the path elsewhere, that is fine.
-the source tarbells have been downloaded into /sources (e.g. via the wget script)
+
+the source tarbells should have been downloaded into _/sources_ (e.g. via the wget script)
 
 # INSTALLATION
 use $LFS/sources as the directory in which you wget all the tarbells
