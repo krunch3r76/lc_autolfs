@@ -25,13 +25,13 @@ https://user-images.githubusercontent.com/46289600/155764359-e4356bfb-6dfc-46d8-
 
 
 # USAGE
-in chroot environment, first set up your environment by sourcing s_f in /sources/lc_autolfs
 ```
+in chroot environment, first set up your environment by sourcing s_f in /sources/lc_autolfs
 then cd to /sources
 untar the package
 rename package directory if desired
 enter the package directory
-run the environment function (sourced from s_f) mklfscmd
+run the environment function (previously sourced from s_f) mklfscmd
 this will change your directory into a .cmds directory in a separate directory /sources/cmds/<pkg dir name> (made if needed)
 cat the commands from the instructions, categorized as follows:
 each patch command is:
