@@ -7,6 +7,7 @@ additionally, once you have written the commands, you can sit back or leave the 
 
 # REQUIREMENTS
 the script binary (/usr/bin/script) from your host should be copied to lfs chroot env and placed in the path
+the source tarbells have been downloaded into /sources (e.g. via the wget script)
 
 # INSTALLATION
 in $LFS/sources (not in chroot)
