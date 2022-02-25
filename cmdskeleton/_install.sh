@@ -1,6 +1,6 @@
 #!/bin/bash
-# invoke with script as from another file inside CMDSROOT
-# V1.15
+# invoke with binary script as from another file (install.sh) inside CMDSROOT
+# V1.16
 
 PKGNAME=$(basename $PWD)
 CMDSROOT="$LFS/sources/cmds/$PKGNAME"
@@ -91,34 +91,6 @@ try() {
 	set -e
 }
 
-try_cmds() {
-	local STEP=$STEP
-	PREFIXCMD=""
-	if [[ $1 == "nostep" ]]; then
-		STEP=0
-	elif [[ $1 == "sudo" ]]; then
-		PREFIXCMD="sudo "
-	elif [[ $1 == "step" ]]; then
-		STEP=1
-	else
-		echo "ERROR CALLING FUNCTION TRY_CMDS"
-		exit 1
-	fi
-
-	shift
-	declare -a CMDS
-	CMDS=("$@")
-	for CMD in "${CMDS[@]}"; do
-		if [[ "$STEP" == 1 ]]; then
-			echo -e "next command:\n$(echo -e "${PREFIXCMD}${CMD}" | sed -E 's/\t/\n\t/g')" 
-			# echo -e "next command:\n$CMD\n"
-			set +e
-			read -t 10
-			set -e
-		fi
-		try "${PREFIXCMD}${CMD} $ARG"
-	done
-}
 
 PATCHCMDS=$(find $CMDSDIR -name "patchcmd*" | sort -V)
 if [[ -n "$PATCHCMDS" ]]; then
