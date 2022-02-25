@@ -89,6 +89,7 @@ make
 
 (lfs chroot) root:/sources/cmds/sysklogd-1.5.1/.cmds# cat >scmd1
 make BINDIR=/sbin install
+^D
 
 (lfs chroot) root:/sources/cmds/sysklogd-1.5.1/.cmds# cat >pcmd1
 cat > /etc/syslog.conf << "EOF"
