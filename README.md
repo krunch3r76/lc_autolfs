@@ -52,6 +52,7 @@ invoke ./install.sh
 ```
 
 ## POST
+a directory under /sources/cmd has been created by running mklfscmd. the name of this directory is _exactly_ the same as that of the source directory at /sources (where one untarr'ed the package).
 ```
 the directory /sources/cmds/<pkg-dir-untarred-to> has been created
 /sources/cmds/<pkg-dir-untarred-to>/script # ansi colored alternating commands run and output
