@@ -14,7 +14,7 @@ in $LFS/sources (not in chroot)
 ```bash
 git clone https://github.com/krunch3r76/lc_autolfs
 cd lc_autolfs
-git checkout v0.0.5
+git checkout v0.0.6
 # modify s_f to set makeflags if desired
 ```
 

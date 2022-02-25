@@ -5,7 +5,9 @@
 # uncomment for your number of logical processors
 # export MAKEFLAGS=-j7
 
-# if LFS env variable is not set, as in chroot, this works. kept for
+export PATH=$PATH:/sources/bin # script binary should be copied here
+
+# note: if LFS env variable is not set, as in chroot, this works. kept for
 #flexibility
 
 function mklfscmd {
