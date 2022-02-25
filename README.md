@@ -61,7 +61,7 @@ invoke ./install.sh
 a directory under /sources/cmd has been created by running mklfscmd. the name of this directory is _exactly_ the same as that of the source directory at /sources (where one untarr'ed the package).
 ```
 the directory /sources/cmds/<pkg-dir-untarred-to> has been created
-/sources/cmds/<pkg-dir-untarred-to>/script # ansi colored alternating commands run and output
+/sources/cmds/<pkg-dir-untarred-to>/script # ansi colored alternating commands run
 /sources/cmds/<pkg-dir-untarred-to>/cmdsrun # ansi colored output of all commands run
 /sources/cmds/<pkg-dir-untarred-to>/.cmds # contains the commands that were added to be run
 /sources/journal has a line added to it that is the same as <pkg-dir-untarred-to>
