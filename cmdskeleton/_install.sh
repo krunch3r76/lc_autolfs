@@ -128,7 +128,6 @@ SCMDS=$(find $CMDSDIR -name "scmd*" | sort -V)
 if [[ -n "$SCMDS" ]]; then
 	NOCOMMANDS=0
 	for scmd in $SCMDS; do
-		# sed -E -i 's/^([[:space:]]*)(ln -)([^f])(.*)/\1\2f\3\4/g' $scmd
 		runscript $(basename $scmd) "sudo"
 	done
 else
