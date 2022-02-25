@@ -15,6 +15,7 @@ in $LFS/sources (not in chroot)
 git clone https://github.com/krunch3r76/lc_autolfs
 cd lc_autolfs
 git checkout v0.0.4
+# modify s_f to set makeflags if desired
 ```
 
 # USAGE VIDEO DEMOS
