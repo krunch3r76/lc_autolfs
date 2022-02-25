@@ -17,12 +17,13 @@ however, if _/sources/bin/_ does not exist, but **script** has been copied into 
 the source tarbells have been downloaded into /sources (e.g. via the wget script)
 
 # INSTALLATION
-in $LFS/sources (not in chroot)
+use $LFS/sources as the directory in which you wget all the tarbells
+now, in $LFS/sources (not in chroot)
 ```bash
 git clone https://github.com/krunch3r76/lc_autolfs
 cd lc_autolfs
 git checkout v0.0.6
-# modify s_f to set makeflags if desired
+# uncomment a line in s_f to set makeflags if desired
 ```
 
 # USAGE VIDEO DEMOS
