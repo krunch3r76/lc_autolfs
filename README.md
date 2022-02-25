@@ -54,7 +54,7 @@ invoke ./install.sh
 the directory /sources/cmds/<pkg-dir-untarred-to> has been created
 this directory contains the files:
 - script # lists the commands run and output
-- cmds # lists just the commands run
+- cmdsrun # lists just the commands run
 
 the file /sources/journal has a line added to it that is the same as <pkg-dir-untarred-to>
 ```
