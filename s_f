@@ -1,7 +1,8 @@
 #!/bin/bash
 # s_f
 # load environment functions and variables pertinent to running cmds
-export MAKEFLAGS=-j7
+# uncomment for your number of logical processors
+# export MAKEFLAGS=-j7
 function mklfscmd {
 # read the pkgname from the current directory and create
 # cmd directory then cd
