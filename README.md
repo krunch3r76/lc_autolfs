@@ -2,7 +2,7 @@
 scripting the lfs package installations
 
 # REQUIREMENTS
-the script binary from your host should be copied to lfs chroot env and placed in the path
+the script binary (/usr/bin/script) from your host should be copied to lfs chroot env and placed in the path
 
 # INSTALLATION
 in $LFS/sources (not in chroot)
