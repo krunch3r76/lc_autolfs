@@ -5,6 +5,8 @@ or scripting the lfs book package installation instructions
 
 one problem i have had when installing lfs packages is keeping track or ensuring i ran every command. i wrote a small group of short scripts (short and sweet to audit) to help with this. with my tools, you can review just the commands run or the commands run and their output. you can review the packages installed and in what order (useful if you think you missed one). package names follow the directory name so you can add pass 1 pass 2 etc to whatever you untar. please see the video demo
 
+special sauce: if you are in the middle of an lfs install you can pick right up with this!
+
 note these scripts are pertinent to installing an lfs base system. there will be a separate repo for blfs in the future.
 
 additionally, once you have written the commands, you can sit back or leave the terminal and review later, they will run by themselves without intervention after a short timeout.
