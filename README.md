@@ -58,6 +58,8 @@ this directory contains the files:
 
 the file /sources/journal has a line added to it that is the same as <pkg-dir-untarred-to>
 ```
+
+## EXAMPLE (from video)
 ```bash
 (/mnt/lfs/sources) # chroot
 (lfs chroot) root:/# cd sources # this is where you downloaded the tars
@@ -68,12 +70,44 @@ the file /sources/journal has a line added to it that is the same as <pkg-dir-un
 (lfs chroot) root:/sources# cd sysklogd-1.5.1
 (lfs chroot) root:/sources/sysklogd-1.5.1# mklfscmd
 mkdir: created directory '/sources/cmds/sysklogd-1.5.1' # chdir happens in the background
-(lfs chroot) root:/sources/cmds/sysklogd-1.5.1/.cmds
-cat >cmd1
+
+
+(lfs chroot) root:/sources/cmds/sysklogd-1.5.1/.cmds# cat >patchmd1
+# if there was a patch command it would be pasted here
+
+(lfs chroot) root:/sources/cmds/sysklogd-1.5.1/.cmds# cat >cmd1
+sed -i '/Error loading kernel symbols/{n;n;d}' ksym_mod.c
+sed -i 's/union wait/int/' syslogd.c
+^D
+
+(lfs chroot) root:/sources/cmds/sysklogd-1.5.1/.cmds# cat >cmd2
+make
+^D
+
+(lfs chroot) root:/sources/cmds/sysklogd-1.5.1/.cmds# cat >tcmd1
+# if there was a test command it would be pasted here
+
+(lfs chroot) root:/sources/cmds/sysklogd-1.5.1/.cmds# cat >scmd1
+make BINDIR=/sbin install
+
+(lfs chroot) root:/sources/cmds/sysklogd-1.5.1/.cmds# cat >pcmd1
+cat > /etc/syslog.conf << "EOF"
+# Begin /etc/syslog.conf
+
+auth,authpriv.* -/var/log/auth.log
+*.*;auth,authpriv.none -/var/log/sys.log
+daemon.* -/var/log/daemon.log
+kern.* -/var/log/kern.log
+mail.* -/var/log/mail.log
+user.* -/var/log/user.log
+*.emerg *
+
+# End /etc/syslog.conf
+EOF
+^D
 ```
 see video more added soon
 
-## EXAMPLE (from video)
 
 # USAGE NOTES
 after setting up the build environment, it is okay to mv the cmds directory to cmds_build or whatever so that a new cmds directory is used for the next stage (to avoid package name conflicts and retain logs)
