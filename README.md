@@ -70,7 +70,8 @@ the file /sources/journal has a line added to it that is the same as <pkg-dir-un
 mkdir: created directory '/sources/cmds/sysklogd-1.5.1' # chdir happens in the background
 (lfs chroot) root:/sources/cmds/sysklogd-1.5.1/.cmds
 cat >cmd1
-```see video more added soon
+```
+see video more added soon
 
 ## EXAMPLE (from video)
 
