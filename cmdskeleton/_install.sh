@@ -1,6 +1,6 @@
 #!/bin/bash
 # invoke with binary script as from another file (install.sh) inside CMDSROOT
-# V1.16
+# V1.17
 
 PKGNAME=$(basename $PWD)
 CMDSROOT="$LFS/sources/cmds/$PKGNAME"
@@ -22,7 +22,6 @@ fi
 
 
 runscript() {
-	# todo actually run the script program
 	sourcefile=$1
 	sudo=$2
 	echo -e "\033[0;0"
@@ -75,7 +74,6 @@ try() {
 		TOGGLECOLOR=$TOGGLECOLOR1
 	fi
 	set +e
-	# echo -e "$TOGGLECOLOR$2 $1\033[0m" | sed 's/\t/\n\t/g' 1>&3
 	bash -c "$1"
 	if [[ $? != 0 ]]; then
 		if [[ $2 != "ignore" ]]; then
@@ -126,7 +124,6 @@ fi
 IGNORE_ERRORS=$IGNORE_ERRORS_SAVE
 
 
-
 SCMDS=$(find $CMDSDIR -name "scmd*" | sort -V)
 if [[ -n "$SCMDS" ]]; then
 	NOCOMMANDS=0
@@ -137,6 +134,7 @@ if [[ -n "$SCMDS" ]]; then
 else
 	echo -e "\033[1mWARNING: no super/install commands are in this package\033[0m"
 fi
+
 
 PCMDS=$(find $CMDSDIR -name "pcmd*" | sort -V)
 if [[ -n "$PCMDS" ]]; then
@@ -155,6 +153,3 @@ if [[ $NOCOMMANDS == 0 ]]; then
 else
 	exit 1
 fi
-
-# read -t10 -p "the build directory will be erased in 10 seconds"
-# rm -rf 
