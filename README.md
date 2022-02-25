@@ -16,6 +16,13 @@ cd lc_autolfs
 git checkout v0.0.3
 ```
 
+# USAGE VIDEO DEMOS
+
+this video demonstrates cmd, scmd, and pcmd for build commands, install commands, and post configuration commands respectively. if there were patch commands, patchcmd1,2,3 would have been used.
+
+https://user-images.githubusercontent.com/46289600/155764359-e4356bfb-6dfc-46d8-8314-be017f6d7a11.mp4
+
+
 # USAGE
 in chroot environment, first set up your environment by sourcing s_f in /sources/lc_autolfs
 ```
@@ -39,11 +46,9 @@ cd ../ into /sources/cmds/<pkg-dir-name>
 invoke ./install.sh
 ```
 
-# VIDEO DEMOS
+# USAGE NOTES
+after setting up the build environment, it is okay to mv the cmds directory to cmds_build or whatever so that a new cmds directory is used for the next stage (to avoid package name conflicts and retain logs)
 
-this video demonstrates cmd, scmd, and pcmd for build commands, install commands, and post configuration commands respectively. if there were patch commands, patchcmd1,2,3 would have been used.
-
-https://user-images.githubusercontent.com/46289600/155764359-e4356bfb-6dfc-46d8-8314-be017f6d7a11.mp4
 
 
 
