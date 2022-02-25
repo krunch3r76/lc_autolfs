@@ -1,6 +1,10 @@
 # lc_autolfs
 scripting the lfs package installations
 
+one problem i have had when installing lfs packages is keeping track or ensuring i ran every command. i wrote scripts to help with this. with my tools, you can review just the commands run or the commands run and their output. you can review the packages installed and in what order (useful if you think you missed one). package names follow the directory name so you can add pass 1 pass 2 etch. please see the video demo
+
+additionally, once you have written the commands, you can sit back or leave the terminal and review later, they will run by themselves without intervention after a short timeout.
+
 # REQUIREMENTS
 the script binary (/usr/bin/script) from your host should be copied to lfs chroot env and placed in the path
 
