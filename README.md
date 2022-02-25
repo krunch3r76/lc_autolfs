@@ -12,7 +12,7 @@ note these scripts are pertinent to installing an lfs base system. there will be
 additionally, once you have written the commands, you can sit back or leave the terminal and review later, they will run by themselves without intervention after a short timeout.
 
 # SUMMARY
-lfs book instructions can be read and then copied and pasted into grouped statements. these are run as if the commands were entered in the source directory of the package (i.e. as if they were entered by hand). the whole process is observed on the outside looking in (cheers Leary). it output is saved in a directory under /sources -> /sources/cmds/<pkg-name>. read on for more details.
+lfs book instructions can be read and then copied and pasted into grouped statements. these are run as if the commands were entered in the source directory of the package (i.e. as if they were entered by hand). the whole process is observed on the outside looking in (cheers Leary). output is saved in a directory under /sources -> /sources/cmds/<pkg-name>. read on for more details.
 
 # REQUIREMENTS
 the **script** binary (_/usr/bin/script_) from your host should be copied to lfs chroot env and placed in the path at _/sources/bin/_ (**make this directory**)
