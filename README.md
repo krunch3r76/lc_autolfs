@@ -6,7 +6,8 @@ one problem i have had when installing lfs packages is keeping track or ensuring
 additionally, once you have written the commands, you can sit back or leave the terminal and review later, they will run by themselves without intervention after a short timeout.
 
 # REQUIREMENTS
-the script binary (/usr/bin/script) from your host should be copied to lfs chroot env and placed in the path
+the **script** binary (_/usr/bin/script_) from your host should be copied to lfs chroot env and placed in the path at _/sources/bin/_ (**make this directory**)
+however, if _/sources/bin/_ does not exist, but **script** has been copied into the path elsewhere, that is fine.
 the source tarbells have been downloaded into /sources (e.g. via the wget script)
 
 # INSTALLATION
