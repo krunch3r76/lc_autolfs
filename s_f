@@ -1,8 +1,13 @@
 #!/bin/bash
 # s_f
 # load environment functions and variables pertinent to running cmds
+
 # uncomment for your number of logical processors
 # export MAKEFLAGS=-j7
+
+# if LFS env variable is not set, as in chroot, this works. kept for
+#flexibility
+
 function mklfscmd {
 # read the pkgname from the current directory and create
 # cmd directory then cd
