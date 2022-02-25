@@ -1,6 +1,9 @@
 # lc_autolfs
 scripting the lfs package installations
 
+# REQUIREMENTS
+the script binary from your host should be copied to lfs chroot env and placed in the path
+
 # INSTALLATION
 in $LFS/sources (not in chroot)
 ```bash
@@ -8,7 +11,6 @@ git clone https://github.com/krunch3r76/lc_autolfs
 cd lc_autolfs
 git checkout v0.0.3
 ```
-*NOTE*: if script is not available, copy it from your host as a binary
 
 # USAGE
 in chroot environment, first set up your environment by sourcing s_f in /sources/lc_autolfs
