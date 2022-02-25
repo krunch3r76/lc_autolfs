@@ -57,6 +57,7 @@ this directory contains the files:
 - cmds # lists just the commands run
 
 the file /sources/journal has a line added to it that is the same as <pkg-dir-untarred-to>
+```
 ```bash
 (/mnt/lfs/sources) # chroot
 (lfs chroot) root:/# cd sources # this is where you downloaded the tars
