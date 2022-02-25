@@ -41,6 +41,7 @@ invoke ./install.sh
 
 # VIDEO DEMOS
 
+this video demonstrates cmd, scmd, and pcmd for build commands, install commands, and post configuration commands respectively. if there were patch commands, patchcmd1,2,3 would have been used.
 
 https://user-images.githubusercontent.com/46289600/155764359-e4356bfb-6dfc-46d8-8314-be017f6d7a11.mp4
 
