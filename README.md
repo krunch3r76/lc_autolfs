@@ -1,12 +1,20 @@
+
+ SORRY ADDING FILES IN A MINUTE
+ 
 # lc_autolfs
 scripting the lfs package installations
 
 # INSTALLATION
-in $LFS/sources
+in $LFS/sources (not in chroot)
+```bash
 git clone https://github.com/krunch3r76/lc_autolfs
+cd lc_autolfs
+git checkout v0.0.2
+```
 
 # USAGE
 in chroot environment, first set up your environment by sourcing s_f in /sources/lc_autolfs
+```
 then cd to /sources
 untar the package
 rename package directory if desired
@@ -25,6 +33,7 @@ cat >pcmd1 ... 2,3,4 ...
 when you have created the command dialogues:
 cd ../ into /sources/cmds/<pkg-dir-name>
 invoke ./install.sh
+```
 
 # VIDEO DEMOS
 
