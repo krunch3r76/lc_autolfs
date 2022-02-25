@@ -134,5 +134,6 @@ see video more added soon
 # USAGE NOTES
 after setting up the build environment, it is okay to mv the cmds directory to cmds_build or whatever so that a new cmds directory is used for the next stage (to avoid package name conflicts and retain logs)
 
-
+# COMMENTS
+as of this writing this is an MVP. over time, the interface should get less klunky and more candy.
 
