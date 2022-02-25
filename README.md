@@ -69,7 +69,7 @@ the directory /sources/cmds/<pkg-dir-untarred-to> has been created
 /sources/cmds/<pkg-dir-untarred-to>/install.sh # interprets current directory and invokes script on the generic _install.sh
 /sources/cmds/<pkg-dir-untarred-to>/_install.sh # run the commands and logs the runs (not called directly)
 /sources/cmds/<pkg-dir-untarred-to>/script # ansi colored alternating commands run
-/sources/cmds/<pkg-dir-untarred-to>/cmdsrun # ansi colored output of all commands run
+/sources/cmds/<pkg-dir-untarred-to>/cmdsrun # ansi colored output of all commands run with exit status
 /sources/cmds/<pkg-dir-untarred-to>/.cmds # contains the commands that were added to be run
 /sources/journal has a line added to it that is the same as <pkg-dir-untarred-to>
 
