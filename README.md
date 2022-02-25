@@ -19,7 +19,7 @@ git checkout v0.0.3
 
 # USAGE VIDEO DEMOS
 
-this video demonstrates cmd, scmd, tcmd, and pcmd for build commands, install commands, test commands, and post configuration commands respectively. if there were patch commands, patchcmd1,2,3 would have been used.
+this video demonstrates (patchcmd), cmd, scmd, (tcmd), and pcmd for build commands, install commands, (test commands), and post configuration commands respectively. if there were patch commands, patchcmd1,2,3 would have been used or for tests tcmd1,2,3 etc. for parenthesized commands see example written.
 
 https://user-images.githubusercontent.com/46289600/155764359-e4356bfb-6dfc-46d8-8314-be017f6d7a11.mp4
 
