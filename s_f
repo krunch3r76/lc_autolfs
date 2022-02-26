@@ -5,6 +5,9 @@
 # uncomment for your number of logical processors
 # export MAKEFLAGS=-j7
 
+[[ ! $(command -v script) ]] && echo -e "\033[1mscript not found, please copy /usr/bin/script" \
+	"from host into \$LFS/sources/bin - this directory will be added to the PATH variable" \
+        "automatically"
 export PATH=$PATH:/sources/bin # script binary should be copied here
 
 # note: if LFS env variable is not set, as in chroot, this works. kept for
