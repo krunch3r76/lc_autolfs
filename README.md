@@ -11,7 +11,7 @@ the problem lc_autolfs solves is when installing a base lfs system, it is easy t
 refer to https://www.linuxfromscratch.org/lfs/view/stable/chapter08/sysklogd.html to follow along with the examples
 
 ## add script to the chroot env and clone the repo
-__if _script_ is already installed in the chroot environment, instructions to copy script from the host to $LFS/sources/bin may be skipped__
+__if _script_ is already installed in the chroot environment, the statement to copy script from the host to $LFS/sources/bin may be skipped__
 ```bash
 (host)# mount $LFS
 (host)$ mkdir -p $LFS/sources/bin # this will be added to the path when sourcing later
