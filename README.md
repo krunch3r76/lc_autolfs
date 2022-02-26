@@ -10,11 +10,11 @@ the problem lc_autolfs solves is when installing a base lfs system, it is easy t
 # USAGE
 refer to https://www.linuxfromscratch.org/lfs/view/stable/chapter08/sysklogd.html to follow along with the examples
 
-## set up directories and clone the repo
+## add script to the chroot env and clone the repo
 
 ```bash
 (host)# mount $LFS
-(host)$ mkdir $LFS/bin
+(host)$ mkdir $LFS/bin # this will be added to the path when sourcing later
 (host)$ cp /usr/bin/script $LFS/bin
 (host)$ mkdir $LFS/sources
 (host)$ cd $LFS/sources
