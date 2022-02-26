@@ -7,6 +7,8 @@ don't know what lfs is? then you don't know the meaning of free: https://www.lin
 
 the problem lc_autolfs solves is when installing a base lfs system, it is easy to overlook what packages or commands may have been skipped or may have failed. lc_autolfs solves this problem by facilitating an automated workflow to install and review. this is accomplished primarily by mentally categorizing the commands from the instructions pages before writing them out, writing them in their entirety before running them, and executing the commands in order automated to capture exit codes and via the script binary (from util-linux) to record the outputs.
 
+refer to SysV book page on sysklogd to follow along with the usage examples: https://www.linuxfromscratch.org/lfs/view/stable/chapter08/sysklogd.html
+
 # USAGE
 ## set up directories and clone the repo
 
