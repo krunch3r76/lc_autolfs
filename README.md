@@ -47,8 +47,8 @@ next chroot into $LFS as per the manual directions (mount proc as needed beforeh
 lfs instructions may be categorized in order as patch commands, configuration/build commands, installation commands, and post-configuration commands.
 here in /sources/cmds/sysklod-1.5.1/.cmds we create text files for these categories to be run as shell commands in the priority implied.
 
-### create text files that contain the instructions for patching: pcmd{1,2,3,...}
-in the sysklogd-1.5.1 manual page there are none, otherwise we would create pcmd1,2,3 files. they may be omitted here.
+### create text files that contain the instructions for patching: patchcmd{1,2,3,...}
+in the sysklogd-1.5.1 manual page there are none, otherwise we would create patchcmd1,2,3 files. they may be omitted here.
 
 ### create text files that contain build/configuration instructions: cmd{1,2,3...}
 we will create the first command(s) to be run as a text file cmd1. if there was a patch command to run, it would be named patchcmd1 and would be run first later. as, there are not patch commands, we begin by creating a configuration/build command text file cmd1:
