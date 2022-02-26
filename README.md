@@ -120,6 +120,8 @@ https://user-images.githubusercontent.com/46289600/155764359-e4356bfb-6dfc-46d8-
 # USAGE TIPS
 after setting up the build environment, it is okay to mv the cmds directory to cmds_build or whatever so that a new cmds directory is used for the next stage (to avoid package name conflicts and retain logs)
 
+any manual page can be scripted even if there is no associated tarbell. the execution will be logged to /sources/journal under whatever directory name mklfscmd was run from.
+
 ## options to install.sh
 errors on any commands except test commands will break execution. currently, install.sh accepts a single argument which is either "ignore" or "skiptests". "ignore" will ignore all errors, while normally any error would break the flow. "skiptests" will skip running the test commands (if any were specified). more options in the future for more granularity, including skipping post configuration.
 
