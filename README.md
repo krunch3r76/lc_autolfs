@@ -14,7 +14,7 @@ refer to https://www.linuxfromscratch.org/lfs/view/stable/chapter08/sysklogd.htm
 
 ```bash
 (host)# mount $LFS
-(host)$ mkdir $LFS/bin # this will be added to the path when sourcing later
+(host)$ mkdir $LFS/sources/bin # this will be added to the path when sourcing later
 (host)$ cp /usr/bin/script $LFS/bin
 (host)$ mkdir $LFS/sources
 (host)$ cd $LFS/sources
