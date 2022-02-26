@@ -5,10 +5,13 @@
 # uncomment for your number of logical processors
 # export MAKEFLAGS=-j7
 
-[[ ! $(command -v script) ]] && echo -e "\033[1mscript not found, please copy /usr/bin/script" \
+export PATH=$PATH:/sources/bin # script binary should be copied here
+command -v script >/dev/null
+if [[ ! $(command -v script) ]]; then
+       	echo -e "\033[1mscript not found, please copy /usr/bin/script" \
 	"from host into \$LFS/sources/bin - this directory will be added to the PATH variable" \
         "automatically\033[0m"
-export PATH=$PATH:/sources/bin # script binary should be copied here
+fi
 
 # note: if LFS env variable is not set, as in chroot, this works. kept for
 #flexibility
@@ -21,5 +24,6 @@ pkgname=$(basename $PWD)
 mkdir -pv $LFS/sources/cmds/$pkgname
 cp $LFS/sources/lc_autolfs/cmdskeleton/* $LFS/sources/cmds/$pkgname
 mkdir $LFS/sources/cmds/$pkgname/.cmds
+echo -e "\033[2mchanging directory to $LFS/sources/cmds/$pkgname/.cmds\033[0m"
 cd $LFS/sources/cmds/$pkgname/.cmds
 }
