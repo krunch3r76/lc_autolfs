@@ -28,7 +28,7 @@ next chroot into $LFS as per the manual directions (mount proc as needed beforeh
 
 ## source needed environment variables
 ```bash
-(chroot) # cd /sources/lc_autolfs
+(chroot) /# cd /sources/lc_autolfs
 (chroot) /sources/lc_autolfs# source s_f
 ```
 
