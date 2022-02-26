@@ -3,6 +3,8 @@ scripting the lfs package installation
 
 or scripting the lfs book package installation instructions
 
+don't know what lfs is? have you been living under a rock? https://www.linuxfromscratch.org
+
 one problem i have had when installing lfs packages is keeping track or ensuring i ran every command. i wrote a small group of short scripts (short and sweet to audit) to help with this. with my tools, you can review just the commands run with their exit status or all the commands run with their complete output. you can review the packages installed and in what order (useful if you think you missed one). package names follow the directory name so you can add pass 1 pass 2 etc to whatever you untar. you can even create a directory for instructions that are part of lfs but are not associated with a tar...
 
 note these scripts are pertinent to installing an lfs base system. there will be a separate repo for blfs in the future.
