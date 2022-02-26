@@ -11,7 +11,7 @@ the problem lc_autolfs solves is when installing a base lfs system, it is easy t
 refer to https://www.linuxfromscratch.org/lfs/view/stable/chapter08/sysklogd.html to follow along with the examples
 
 ## add script to the chroot env and clone the repo
-
+__if _script_ is already installed in the chroot environment, instructions to copy script from the host to $LFS/sources/bin may be skipped__
 ```bash
 (host)# mount $LFS
 (host)$ mkdir -p $LFS/sources/bin # this will be added to the path when sourcing later
@@ -143,4 +143,4 @@ errors on any commands except test commands will break execution. currently, ins
 # COMMENTS
 as of this writing this is an MVP. over time, the interface should get less klunky and more candy.
 
-script is part of the util-linux suite of binaries. it is installed as part of the build environment and later as part of LFS. it is standard on any linux distribution. the directions to copy from the host may be replaced with the binary produced at any stage in the building of LFS e.g.: https://www.linuxfromscratch.org/lfs/view/stable/chapter07/util-linux.html
+_script_ (part of the util-linux suite of tools) is standard on any linux distribution and the directions to copy from the host should be safely skipped if the binary produced building of LFS is already available e.g. at: https://www.linuxfromscratch.org/lfs/view/stable/chapter07/util-linux.html.
