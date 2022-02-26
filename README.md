@@ -98,6 +98,9 @@ EOF
 ```bash
 (chroot) /sources/cmds/sysklogd-1.5.1/.cmds# cd ..
 (chroot) /sources/cmds/sysklogd-1.5.1# ./install.sh
+# comments: patchcmds, cmds, tcmds, scmds, and pcmds are run in sequence with brief pauses if interruption desirable
+#, output to screen, and logged. the sequence stops if there is an error except for test commands
+#(unless ignore passed to script see source - see options below)
 ```
 
 ### after a successful run, review
@@ -116,6 +119,10 @@ https://user-images.githubusercontent.com/46289600/155764359-e4356bfb-6dfc-46d8-
 
 # USAGE TIPS
 after setting up the build environment, it is okay to mv the cmds directory to cmds_build or whatever so that a new cmds directory is used for the next stage (to avoid package name conflicts and retain logs)
+
+## options to install.sh
+errors on any commands except test commands will break execution. currently, install.sh accepts a single argument which is either "ignore" or "skiptests". "ignore" will ignore all errors, while normally any error would break the flow. "skiptests" will skip running the test commands (if any were specified). more options in the future for more granularity, including skipping post configuration.
+
 
 # COMMENTS
 as of this writing this is an MVP. over time, the interface should get less klunky and more candy.
