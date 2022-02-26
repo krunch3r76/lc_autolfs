@@ -143,4 +143,4 @@ errors on any commands except test commands will break execution. currently, ins
 # COMMENTS
 as of this writing this is an MVP. over time, the interface should get less klunky and more candy.
 
-_script_ (part of the util-linux suite of tools) is standard on any linux distribution and the directions to copy from the host should be safely skipped if the binary produced building of LFS is already available e.g. at: https://www.linuxfromscratch.org/lfs/view/stable/chapter07/util-linux.html.
+_script_ (part of the util-linux suite of tools) is standard on any linux distribution and the directions to copy from the host should be safely skipped if util-linux of LFS has already been compiled e.g. at: https://www.linuxfromscratch.org/lfs/view/stable/chapter07/util-linux.html.
