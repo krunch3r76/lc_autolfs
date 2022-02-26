@@ -109,7 +109,7 @@ EOF
 ```bash
 /sources/cmds/sysklogd-1.5.1# more cmdsruns
 /sources/cmds/sysklogd-1.5.1# more script
-# tail /sources/journal
+/sources/cmds/sysklogd-1.5.1# tail /sources/journal
 ```
 
 # USAGE VIDEO DEMOS
