@@ -100,7 +100,7 @@ EOF
 (chroot) /sources/cmds/sysklogd-1.5.1# ./install.sh
 # comments: patchcmds, cmds, tcmds, scmds, and pcmds are run in sequence with brief pauses if interruption desirable
 #, output to screen, and logged. the sequence stops if there is an error except for test commands
-#(unless ignore passed to script see source - see options below)
+#(unless ignore passed to script - see options section below)
 ```
 
 ### after a successful run, review
