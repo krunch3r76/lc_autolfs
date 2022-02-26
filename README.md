@@ -5,7 +5,7 @@ or scripting the lfs book package installation instructions
 
 don't know what lfs is? have you been living under a rock? https://www.linuxfromscratch.org
 
-the problem lc_autolfs solves is when installing a base lfs system, it is easy to overlook what packages or commands may have been skipped. lc_autolfs solves this problem by facilitating an automated workflow to install and review. this is accomplished primarily by mentally categorizing the commands from the instructions pages before writing them out.
+the problem lc_autolfs solves is when installing a base lfs system, it is easy to overlook what packages or commands may have been skipped. lc_autolfs solves this problem by facilitating an automated workflow to install and review. this is accomplished primarily by mentally categorizing the commands from the instructions pages before writing them out, and writing them in their entirety before running them.
 
 # USAGE
 ## set up directories and clone the repo
