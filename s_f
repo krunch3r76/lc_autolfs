@@ -7,7 +7,7 @@
 
 [[ ! $(command -v script) ]] && echo -e "\033[1mscript not found, please copy /usr/bin/script" \
 	"from host into \$LFS/sources/bin - this directory will be added to the PATH variable" \
-        "automatically"
+        "automatically\033[0m"
 export PATH=$PATH:/sources/bin # script binary should be copied here
 
 # note: if LFS env variable is not set, as in chroot, this works. kept for
