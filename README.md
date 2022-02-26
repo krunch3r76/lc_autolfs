@@ -121,6 +121,10 @@ https://user-images.githubusercontent.com/46289600/155764359-e4356bfb-6dfc-46d8-
 
 
 # USAGE TIPS
+only source _s_f_ once (not needed again)
+
+edit _s_f_ to uncomment the makeflags line to reduce build times, then source. (without an editor, this would be done via the host mount)
+
 after setting up the build environment, it is okay to mv the cmds directory to cmds_build or whatever so that a new cmds directory is used for the next stage (to avoid package name conflicts and retain logs)
 
 any manual page can be scripted even if there is no associated tarbell. the execution will be logged to /sources/journal under whatever directory name mklfscmd was run from.
