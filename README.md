@@ -25,10 +25,14 @@ the problem lc_autolfs solves is when installing a base lfs system, it is easy t
 ## chroot into $LFS
 next chroot into $LFS as per the manual directions (mount proc as needed beforehand)
 
-## untar desired package
+## source needed environment variables
 ```bash
 (chroot) # cd /sources/lc_autolfs
 (chroot) /sources/lc_autolfs# source s_f
+```
+
+## untar desired package (repeat for subsequent packages here)
+```
 (chroot) /sources/lc_autolfs# cd /sources
 (chroot) /sources# tar -xf sysklogd-1.5.1.tar.gz
 (chroot) /sources# cd sysklogd-1.5.1
