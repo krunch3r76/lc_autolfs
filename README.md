@@ -120,6 +120,8 @@ https://user-images.githubusercontent.com/46289600/155764359-e4356bfb-6dfc-46d8-
 
 
 # USAGE TIPS
+there is no need to manually press enter to run each command, each command will execute after a short timeout (as long as the previous did not report an error)
+
 only source _s_f_ once (not needed again)
 
 edit _s_f_ to uncomment the makeflags line to reduce build times, then source. (without an editor, this would be done via the host mount)
