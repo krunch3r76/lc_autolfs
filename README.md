@@ -5,116 +5,73 @@ or scripting the lfs book package installation instructions
 
 don't know what lfs is? have you been living under a rock? https://www.linuxfromscratch.org
 
-one problem i have had when installing lfs packages is keeping track or ensuring i ran every command. i wrote a small group of short scripts (short and sweet to audit) to help with this. with my tools, you can review just the commands run with their exit status or all the commands run with their complete output. you can review the packages installed and in what order (useful if you think you missed one). package names follow the directory name so you can add pass 1 pass 2 etc to whatever you untar. you can even create a directory for instructions that are part of lfs but are not associated with a tar...
-
-note these scripts are pertinent to installing an lfs base system. there will be a separate repo for blfs in the future.
-
-special sauce: if you are in the middle of an lfs install you can pick right up with this!
-
-additionally, once you have written the commands, you can sit back or leave the terminal and review later, they will run by themselves without intervention after a short timeout.
-
-finally, the scripts are short enough -- and may be refactored to be more concise -- that the workflow is clear to follow (hopefully) and one could model one's own script after mine, seeing that mine works. naturally, us hackers are inclined to run our own code after all. this repo will likely later elaborate on the workflow in a sort of nocode approach to facilitate this. in the meantime, one may wish to copy and paste the parts of this repo much like building from scratch to have complete peace of mind.
-
-
-# SUMMARY
-lfs book instructions can be read and then copied and pasted into grouped statements. these are run as if the commands were entered in the source directory of the package (i.e. as if they were entered by hand). the whole process is observed on the outside looking in (cheers Leary). output is saved in a directory under /sources -> /sources/cmds/<pkg-name>. read on for more details.
-
-# REQUIREMENTS
-the **script** binary (_/usr/bin/script_) from your host should be copied to lfs chroot env and placed in the path at _/sources/bin/_ (**make this directory**)
-however, if _/sources/bin/_ does not exist, but **script** has been copied into the path elsewhere, that is fine.
-
-the source tarbells should have been downloaded into _/sources_ (e.g. via the wget script)
-
-# INSTALLATION
-use $LFS/sources as the directory in which you wget all the tarbells
-
-now, in $LFS/sources (not in chroot)
-```bash
-git clone https://github.com/krunch3r76/lc_autolfs
-cd lc_autolfs
-git checkout v0.1.0
-# uncomment a line in s_f to set makeflags if desired
-```
-
-# USAGE VIDEO DEMOS
-
-this video demonstrates (patchcmd), cmd, scmd, (tcmd), and pcmd for build commands, install commands, (test commands), and post configuration commands respectively. if there were patch commands, patchcmd1,2,3 would have been used or for tests tcmd1,2,3 etc. for parenthesized commands see example written.
-
-https://user-images.githubusercontent.com/46289600/155764359-e4356bfb-6dfc-46d8-8314-be017f6d7a11.mp4
-
+the problem lc_autolfs solves is when installing a base lfs system, it is easy to overlook what packages or commands may have been skipped. lc_autolfs solves this problem by facilitating an automated workflow to install and facilitate review.
 
 # USAGE
+## set up directories and clone the repo
 
-## BEGIN
-```
-in chroot environment, first set up your environment by sourcing s_f in /sources/lc_autolfs
-then cd to /sources
-untar the package
-rename package directory if desired
-enter the package directory
-run the environment function (previously sourced from s_f) mklfscmd
-this will change your directory into a .cmds directory in a separate directory /sources/cmds/<pkg dir name> (made if needed)
-cat the commands from the instructions, categorized as follows:
-each patch command is:
-cat >patchcmd1 ... 2,3,4,...
-each build configuration command is:
-cat >cmd1 ... 2,3,4 ..
-each super user command is:
-cat >scmd1 ... 2,3,4 ...
-each post configuration command is:
-cat >pcmd1 ... 2,3,4 ...
-when you have created the command dialogues:
-cd ../ into /sources/cmds/<pkg-dir-name>
-invoke ./install.sh
-```
-
-## POST
-a directory under /sources/cmd has been created by running mklfscmd. the name of this directory is _exactly_ the same as that of the source directory at /sources (where one untarr'ed the package).
-```
-the directory /sources/cmds/<pkg-dir-untarred-to> has been created
-/sources/cmds/<pkg-dir-untarred-to>/install.sh # interprets current directory and invokes script on the generic _install.sh
-/sources/cmds/<pkg-dir-untarred-to>/_install.sh # run the commands and logs the runs (not called directly)
-/sources/cmds/<pkg-dir-untarred-to>/script # ansi colored alternating commands run
-/sources/cmds/<pkg-dir-untarred-to>/cmdsrun # ansi colored output of all commands run with exit status
-/sources/cmds/<pkg-dir-untarred-to>/.cmds # contains the commands that were added to be run
-/sources/journal has a line added to it that is the same as <pkg-dir-untarred-to>
-
-to see ansi colors, review with _more_
-```
-
-## EXAMPLE (from video)
 ```bash
-(/mnt/lfs/sources) # chroot
-(lfs chroot) root:/# cd sources # this is where you downloaded the tars
-(lfs chroot) root:/sources# cd lc_autolfs
-(lfs chroot) root:/sources/lc_autolfs# source s_f
-(lfs chroot) root:/sources/lc_autolfs# cd /sources/
-(lfs chroot) root:/sources# tar -xf sysklogd-1.5.1.tar.gz
-(lfs chroot) root:/sources# cd sysklogd-1.5.1
-(lfs chroot) root:/sources/sysklogd-1.5.1# mklfscmd
-mkdir: created directory '/sources/cmds/sysklogd-1.5.1' # chdir happens in the background
+(host)# mount $LFS
+(host)$ mkdir $LFS/bin
+(host)$ cp /usr/bin/script $LFS/bin
+(host)$ mkdir $LFS/sources
+(host)$ cd $LFS/sources
+(host) ($LFS/sources)$ #wget tarbells
+(host) ($LFS/sources)$ git clone https://github.com/krunch3r76/lc_autolfs
+(host) ($LFS/sources)$ cd lc_autolfs
+(host) ($LFS/sources)$ git checkout v0.1.0
+```
 
+## chroot into $LFS
+next chroot into $LFS as per the manual directions (mount proc as needed beforehand)
 
-(lfs chroot) root:/sources/cmds/sysklogd-1.5.1/.cmds# cat >patchmd1
-# if there was a patch command it would be pasted here
+## untar desired package
+```bash
+(chroot) # cd /sources/lc_autolfs
+(chroot) /sources/lc_autolfs# source s_f
+(chroot) /sources/lc_autolfs# cd /sources
+(chroot) /sources# tar -xf sysklogd-1.5.1.tar.gz
+(chroot) /sources# cd sysklogd-1.5.1
+(chroot) /sources/sysklogd-1.5.1# mklfscmd # copies skeleton files to corresponding /sources/cmds/<pkgname> dir
+(chroot) /sources/cmds/sysklogd-1.5.1/.cmds#
+```
 
-(lfs chroot) root:/sources/cmds/sysklogd-1.5.1/.cmds# cat >cmd1
+## copy and paste instructions from lfs manual page for the desired package
+lfs instructions may be categorized as patch commands, configuration/build commands, installation commands, and post-configuration commands.
+here in /sources/cmds/sysklod-1.5.1/.cmds we create text files that for these categories that are run in order implied.
+
+### create text files that contain the instructions for patching: pcmd{1,2,3,...}
+in the sysklogd-1.5.1 manual page there are none, otherwise we would create pcmd1,2,3 files. they may be omitted here.
+
+### create text files that contain build/configuration instructions: cmd{1,2,3...}
+we will create the first command(s) to be run as a text file cmd1. if there was a patch command to run, it would be named patchcmd1 and would be run first later. as, there are not patch commands, we begin by creating a configuration/build command text file cmd1:
+```bash
+(chroot) /sources/cmds/sysklogd-1.5.1/.cmds# cat >cmd1
 sed -i '/Error loading kernel symbols/{n;n;d}' ksym_mod.c
 sed -i 's/union wait/int/' syslogd.c
 ^D
-
-(lfs chroot) root:/sources/cmds/sysklogd-1.5.1/.cmds# cat >cmd2
+```
+each command text is run in order from 1,2,3..etc. the manual page for sysklogd's next block is also a configuration/build command, so we create cmd2 to follow cmd1:
+```bash
+(chroot) /sources/cmds/sysklogd-1.5.1/.cmds# cat >cmd2
 make
 ^D
+```
+### create text files that contain test instructions: tcmd{1,2,3...}
+there are no test commands for the example package but if there were it would follow the same pattern. they may be omitted here.
 
-(lfs chroot) root:/sources/cmds/sysklogd-1.5.1/.cmds# cat >tcmd1
-# if there was a test command it would be pasted here
-
-(lfs chroot) root:/sources/cmds/sysklogd-1.5.1/.cmds# cat >scmd1
+### create text files that contain install instructions: scmd{1,2,3...}
+the next command is an install command, typically make install. this would normally require superuser privileges. it is assumed for now that chroot is running with root privileges, however. to set the commands run as "superuser" we begin with scmd1 and then if needed scmd2 and so on to set up symbolic links etc.
+```bash
+(chroot) /sources/cmds/sysklogd-1.5.1/.cmds# cat >scmd1
 make BINDIR=/sbin install
 ^D
+```
 
-(lfs chroot) root:/sources/cmds/sysklogd-1.5.1/.cmds# cat >pcmd1
+### create text files that contain system configuration instructions: pcmd{1,2,3,...}
+next we see there are post configuration commands in the sysklogd manual page. these are copied into pcmd1 (pcmd2 etc if there were more blocks):
+```bash
+(chroot) /sources/cmds/sysklogd-1.5.1/.cmds# cat >pcmd1
 cat > /etc/syslog.conf << "EOF"
 # Begin /etc/syslog.conf
 
@@ -129,14 +86,29 @@ user.* -/var/log/user.log
 # End /etc/syslog.conf
 EOF
 ^D
-
-(lfs chroot) root:/sources/cmds/sysklogd-1.5.1/.cmds# cd ..
-(lfs chroot) root:/sources/cmds# ./install.sh # git should have preserved executable permissions if not chmod +x
 ```
-see video more added soon
+
+### cd into parent directory and run install script
+```bash
+(chroot) /sources/cmds/sysklogd-1.5.1/.cmds# cd ..
+(chroot) /sources/cmds/sysklogd-1.5.1# ./install.sh
+```
+
+### after a successful run, review
+```bash
+/sources/cmds/sysklogd-1.5.1# more cmdsruns
+/sources/cmds/sysklogd-1.5.1# more script
+# tail /sources/journal
+```
+
+# USAGE VIDEO DEMOS
+
+this video demonstrates (patchcmd), cmd, scmd, (tcmd), and pcmd for build commands, install commands, (test commands), and post configuration commands respectively. if there were patch commands, patchcmd1,2,3 would have been used or for tests tcmd1,2,3 etc. for parenthesized commands see example written.
+
+https://user-images.githubusercontent.com/46289600/155764359-e4356bfb-6dfc-46d8-8314-be017f6d7a11.mp4
 
 
-# USAGE NOTES
+# USAGE TIPS
 after setting up the build environment, it is okay to mv the cmds directory to cmds_build or whatever so that a new cmds directory is used for the next stage (to avoid package name conflicts and retain logs)
 
 # COMMENTS
