@@ -123,6 +123,12 @@ after setting up the build environment, it is okay to mv the cmds directory to c
 ## options to install.sh
 errors on any commands except test commands will break execution. currently, install.sh accepts a single argument which is either "ignore" or "skiptests". "ignore" will ignore all errors, while normally any error would break the flow. "skiptests" will skip running the test commands (if any were specified). more options in the future for more granularity, including skipping post configuration.
 
+### example
+```bash
+(chroot) /sources/cmds/sysklogd-1.5.1# ./install.sh ignore
+(chroot) /sources/cmds/sysklogd-1.5.1# ./install.sh skiptests
+```
+
 
 # COMMENTS
 as of this writing this is an MVP. over time, the interface should get less klunky and more candy.
