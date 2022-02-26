@@ -15,7 +15,7 @@ refer to https://www.linuxfromscratch.org/lfs/view/stable/chapter08/sysklogd.htm
 ```bash
 (host)# mount $LFS
 (host)$ mkdir -p $LFS/sources/bin # this will be added to the path when sourcing later
-(host)$ cp /usr/bin/script $LFS/bin
+(host)$ cp /usr/bin/script $LFS/sources/bin
 (host)$ cd $LFS/sources
 (host) ($LFS/sources)$ #wget tarbells
 (host) ($LFS/sources)$ git clone https://github.com/krunch3r76/lc_autolfs
