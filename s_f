@@ -6,7 +6,6 @@
 # export MAKEFLAGS=-j7
 
 export PATH=$PATH:/sources/bin # script binary should be copied here
-command -v script >/dev/null
 if [[ ! $(command -v script) ]]; then
        	echo -e "\033[1mscript not found, please copy /usr/bin/script" \
 	"from host into \$LFS/sources/bin - this directory will be added to the PATH variable" \

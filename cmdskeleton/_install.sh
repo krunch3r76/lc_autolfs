@@ -41,7 +41,9 @@ runscript() {
 	srccmd="source"
 	if [[ -v $sudo ]]; then
 		echo "ABOUT TO SUDO"
-		srcmd="sudo -E"
+		if [[ $(command -v sudo) ]]; then
+			srcmd="sudo -E"
+		fi
 	fi
 
 	echo -e "$TOGGLECOLOR" >>$CMDSRUNFP
