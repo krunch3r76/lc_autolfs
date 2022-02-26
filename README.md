@@ -128,6 +128,8 @@ after setting up the build environment, it is okay to mv the cmds directory to c
 
 any manual page can be scripted even if there is no associated tarbell. the execution will be logged to /sources/journal under whatever directory name mklfscmd was run from.
 
+$LFS/sources/bin might be a good place to write your own scripts, that could wrap these scripts!
+
 ## options to install.sh
 errors on any commands except test commands will break execution. currently, install.sh accepts a single argument which is either "ignore" or "skiptests". "ignore" will ignore all errors, while normally any error would break the flow. "skiptests" will skip running the test commands (if any were specified). more options in the future for more granularity, including skipping post configuration.
 
