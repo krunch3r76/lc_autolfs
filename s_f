@@ -16,8 +16,9 @@ fi
 #flexibility
 
 function mklfscmd {
-# read the pkgname from the current directory and create
-# cmd directory then cd
+# make a directory under /sources/cmds with the same name as the directory where mklfscmd
+#is run and copy the skeleton files into this newly created dir, then cd to newly
+#created directory under /sources/cmds
 set -C
 pkgname=$(basename $PWD)
 mkdir -pv $LFS/sources/cmds/$pkgname
