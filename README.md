@@ -37,7 +37,7 @@ next chroot into $LFS as per the manual directions (mount proc as needed beforeh
 ```
 
 ## copy and paste instructions from lfs manual page for the desired package
-lfs instructions may be categorized as patch commands, configuration/build commands, installation commands, and post-configuration commands.
+lfs instructions may be categorized in order as patch commands, configuration/build commands, installation commands, and post-configuration commands.
 here in /sources/cmds/sysklod-1.5.1/.cmds we create text files for these categories to be run as shell commands in priority implied.
 
 ### create text files that contain the instructions for patching: pcmd{1,2,3,...}
