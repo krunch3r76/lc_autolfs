@@ -37,8 +37,9 @@ next chroot into $LFS as per the manual directions (mount proc as needed beforeh
 (chroot) /sources# tar -xf sysklogd-1.5.1.tar.gz
 (chroot) /sources# cd sysklogd-1.5.1
 (chroot) /sources/sysklogd-1.5.1# mklfscmd
-# comment: copies skeleton files to corresponding /sources/cmds/<pkgname> dir and creates a .cmds dir in the cmds/ tree
-# comment: changes directory to newly created .cmds directory under /sources/cmds/<pkgname>
+# comments: 1.copies skeleton files from cmdskeleton repo dir to corresponding /sources/cmds/<pkgname> dir
+#2.creates a .cmds dir there
+#3.changes directory to there (.cmds directory under /sources/cmds/<pkgname>)
 (chroot) /sources/cmds/sysklogd-1.5.1/.cmds#
 ```
 
