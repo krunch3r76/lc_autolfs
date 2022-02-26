@@ -11,6 +11,9 @@ special sauce: if you are in the middle of an lfs install you can pick right up 
 
 additionally, once you have written the commands, you can sit back or leave the terminal and review later, they will run by themselves without intervention after a short timeout.
 
+finally, the scripts are short enough -- and may be refactored to be more concise -- that the workflow is clear to follow (hopefully) and one could model one's own script after mine, seeing that mine works. naturally, us hackers are inclined to run our own code after all. this repo will likely later elaborate on the workflow in a sort of nocode approach to facilitate this. in the meantime, one may wish to copy and paste the parts of this repo much like building from scratch to have complete peace of mind.
+
+
 # SUMMARY
 lfs book instructions can be read and then copied and pasted into grouped statements. these are run as if the commands were entered in the source directory of the package (i.e. as if they were entered by hand). the whole process is observed on the outside looking in (cheers Leary). output is saved in a directory under /sources -> /sources/cmds/<pkg-name>. read on for more details.
 
