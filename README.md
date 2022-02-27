@@ -115,7 +115,7 @@ EOF
 ```bash
 /sources/cmds/sysklogd-1.5.1# more cmdsruns
 /sources/cmds/sysklogd-1.5.1# more script
-/sources/cmds/sysklogd-1.5.1# tail /sources/journal
+/sources/cmds/sysklogd-1.5.1# tail /sources/journal # chronological entries of pkgs installed (one per line)
 ```
 
 
