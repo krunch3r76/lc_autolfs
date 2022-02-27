@@ -102,7 +102,7 @@ EOF
 ^D
 ```
 
-### cd into parent directory and run install script to execute the above text files
+### cd into parent directory and run install script to execute the above text files in order
 ```bash
 (chroot) /sources/cmds/sysklogd-1.5.1/.cmds# cd ..
 (chroot) /sources/cmds/sysklogd-1.5.1# ./install.sh
