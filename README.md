@@ -11,7 +11,7 @@ the problem lc_autolfs solves is when installing a base lfs system, it is easy t
 
 https://user-images.githubusercontent.com/46289600/155764359-e4356bfb-6dfc-46d8-8314-be017f6d7a11.mp4
 
-this video demonstrates (patchcmd), cmd, scmd, (tcmd), and pcmd for (patch commands), build commands, install commands, (test commands), and post configuration commands respectively. if there were patch commands, patchcmd1,2,3 would have been used or for tests tcmd1,2,3 etc. described in detail below
+this video demonstrates (patchcmd), cmd, scmd, (tcmd), and pcmd or all expanded: (patch commands), build commands, install commands, (test commands), and post configuration commands respectively. if there were patch commands, patchcmd1,2,3 would have been used or for tests tcmd1,2,3 etc. described in detail below
 
 # USAGE
 refer to https://www.linuxfromscratch.org/lfs/view/stable/chapter08/sysklogd.html to follow along with the examples
