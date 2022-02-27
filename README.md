@@ -7,6 +7,12 @@ don't know what lfs is? then you don't know the meaning of free: https://www.lin
 
 the problem lc_autolfs solves is when installing a base lfs system, it is easy to overlook what packages or commands may have been skipped or may have failed. lc_autolfs solves this problem by facilitating an automated workflow to install and review. this is accomplished primarily by mentally categorizing the commands from the instructions pages before writing them out, writing them in their entirety before running them, and executing the commands in order automated to capture exit codes _and_ via the script binary (from util-linux) to record the outputs.
 
+# USAGE VIDEO DEMOS
+
+https://user-images.githubusercontent.com/46289600/155764359-e4356bfb-6dfc-46d8-8314-be017f6d7a11.mp4
+
+this video demonstrates (patchcmd), cmd, scmd, (tcmd), and pcmd for (patch commands), build commands, install commands, (test commands), and post configuration commands respectively. if there were patch commands, patchcmd1,2,3 would have been used or for tests tcmd1,2,3 etc. described in detail below
+
 # USAGE
 refer to https://www.linuxfromscratch.org/lfs/view/stable/chapter08/sysklogd.html to follow along with the examples
 
@@ -111,12 +117,6 @@ EOF
 /sources/cmds/sysklogd-1.5.1# more script
 /sources/cmds/sysklogd-1.5.1# tail /sources/journal
 ```
-
-# USAGE VIDEO DEMOS
-
-this video demonstrates (patchcmd), cmd, scmd, (tcmd), and pcmd for (patch commands), build commands, install commands, (test commands), and post configuration commands respectively. if there were patch commands, patchcmd1,2,3 would have been used or for tests tcmd1,2,3 etc.
-
-https://user-images.githubusercontent.com/46289600/155764359-e4356bfb-6dfc-46d8-8314-be017f6d7a11.mp4
 
 
 # USAGE TIPS
