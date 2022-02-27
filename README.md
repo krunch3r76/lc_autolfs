@@ -32,7 +32,7 @@ __if _script_ is already installed in the chroot environment, the statement to c
 ## chroot into $LFS
 next chroot into $LFS as per the manual directions (mount proc as needed beforehand)
 
-## source needed environment variables
+## source needed environment variables and functions (e.g. mklfscmd)
 ```bash
 (chroot) /# cd /sources/lc_autolfs
 (chroot) /sources/lc_autolfs# source s_f
