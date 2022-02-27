@@ -102,7 +102,7 @@ EOF
 ^D
 ```
 
-### cd into parent directory and run install script to execute the above text files in order
+### cd into parent directory and run install script to automatically execute the above text files in order
 ```bash
 (chroot) /sources/cmds/sysklogd-1.5.1/.cmds# cd ..
 (chroot) /sources/cmds/sysklogd-1.5.1# ./install.sh
@@ -111,6 +111,7 @@ EOF
 #(unless ignore passed to script - see options section below)
 ```
 
+note, pressing enter to proceed to the next step is optional. the next instruction will execute after a short timeout without having to press enter each time.
 ### after a successful run, review
 ```bash
 /sources/cmds/sysklogd-1.5.1# more cmdsruns
