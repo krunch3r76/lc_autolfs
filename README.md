@@ -26,7 +26,7 @@ __if _script_ is already installed in the chroot environment, the statement to c
 (host) ($LFS/sources)$ #wget tarbells
 (host) ($LFS/sources)$ git clone https://github.com/krunch3r76/lc_autolfs
 (host) ($LFS/sources)$ cd lc_autolfs
-(host) ($LFS/sources/lc_autolfs)$ git checkout v0.1.0
+(host) ($LFS/sources/lc_autolfs)$ git checkout v0.1.1
 ```
 **if this was a pass 1 or pass 2 instruction you would change the name of the source dir and append _pass1 _pass2 etc then mklfscmd**
 

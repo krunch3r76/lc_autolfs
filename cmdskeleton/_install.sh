@@ -1,6 +1,6 @@
 #!/bin/bash
 # invoke with binary script as from another file (install.sh) inside CMDSROOT
-# V1.17
+# V1.18
 
 PKGNAME=$(basename $PWD)
 CMDSROOT="$LFS/sources/cmds/$PKGNAME"
@@ -39,12 +39,12 @@ runscript() {
 
 
 	srccmd="source"
-	# if [[ -v $sudo ]]; then
-	# 	echo "ABOUT TO SUDO"
-	# 	if [[ $(command -v sudo) ]]; then
-	# 		srccmd="sudo -E"
-	# 	fi
-	# fi
+	if [[ -v $sudo ]]; then
+		echo "ABOUT TO SUDO"
+		if [[ $(command -v sudo) ]]; then
+			srcmd="sudo -E"
+		fi
+	fi
 
 	echo -e "$TOGGLECOLOR" >>$CMDSRUNFP
 	cat $CMDSDIR/$sourcefile >>$CMDSRUNFP
@@ -91,30 +91,30 @@ try() {
 	set -e
 }
 
-
+NOCOMMANDS=1
 PATCHCMDS=$(find $CMDSDIR -name "patchcmd*" | sort -V)
 if [[ -n "$PATCHCMDS" ]]; then
+	NOCOMMANDS=0
 	for cmd in $PATCHCMDS; do
 		runscript $(basename $cmd)
 	done
-else
-	NOCOMMANDS=1
 fi
 
 CMDS=$(find $CMDSDIR -name "cmd*" | sort -V)
 if [[ -n "$CMDS" ]]; then
+	NOCOMMANDS=0
 	for cmd in $CMDS; do
 		runscript $(basename $cmd)
 	done
 else
 	echo -e "\033[1mWARNING: no initial commands are in this package\033[0m"
-	NOCOMMANDS=1
 fi
 
 TCMDS=$(find $CMDSDIR -name "tcmd*" | sort -V)
 IGNORE_ERRORS_SAVE=$IGNORE_ERRORS
 IGNORE_ERRORS=1
 if [[ -n $TCMDS ]]; then
+	NOCOMMANDS=0
 	if [[ "$OPT" != "skiptests" ]]; then
 		for tcmd in $TCMDS; do
 			runscript $(basename $tcmd)
