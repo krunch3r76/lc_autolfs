@@ -28,6 +28,7 @@ __if _script_ is already installed in the chroot environment, the statement to c
 (host) ($LFS/sources)$ cd lc_autolfs
 (host) ($LFS/sources/lc_autolfs)$ git checkout v0.1.0
 ```
+**if this was a pass 1 or pass 2 instruction you would change the name of the source dir and append _pass1 _pass2 etc then mklfscmd**
 
 ## chroot into $LFS
 next chroot into $LFS as per the manual directions (mount proc as needed beforehand)
