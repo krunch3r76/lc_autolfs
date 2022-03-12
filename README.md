@@ -126,6 +126,8 @@ note, pressing enter to proceed to the next step is optional. the next instructi
 # USAGE TIPS
 there is no need to manually press enter to run each command, each command will execute after a short timeout (as long as the previous did not report an error)
 
+**some instructions may require you to reclassify installation commands as pre-test commands etc. the categorization [:letter:]cmd is only a guideline but order is always preserved.**
+
 to reinstall a package simply untar and run _mklfscmd_ in the package dir. the cmds from before will be preserved and the directory will change as expected to the package cmds directory.
 
 only source _s_f_ once (not needed again)
