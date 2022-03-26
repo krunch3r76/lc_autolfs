@@ -1,0 +1,9 @@
+# add these lines to /root/.bash_profile
+export MAKEFLAGS=-j7
+source /sources/lc_autolfs/s_f
+function autolfs {
+	cd ..
+	./install.sh
+	if [[ $? = 0 ]]; then popd; fi
+}
+echo "hello worlds"
