@@ -1,5 +1,5 @@
 #!/bin/bash
-# V1.6
+# V1.7
 
 PKGNAME=$(basename $PWD)
 SRCDIR=$PWD
@@ -23,4 +23,4 @@ else
 	"!\033[0m"
 fi
 echo ""
-
+exit $CODE

@@ -1,6 +1,7 @@
 # add these lines to /root/.bash_profile
 export MAKEFLAGS=-j7
 source /sources/lc_autolfs/s_f
+# invoke autolfs from the .cmds directory to go straight to install without cd
 function autolfs {
 	cd ..
 	./install.sh
