@@ -1,6 +1,6 @@
 #!/bin/bash
 # invoke with binary script as from another file (install.sh) inside CMDSROOT
-# V1.18
+# V1.19
 
 PKGNAME=$(basename $PWD)
 CMDSROOT="$LFS/sources/cmds/$PKGNAME"
@@ -68,28 +68,6 @@ runscript() {
 	echo -e "\033[0m" >>$CMDSRUNFP
 }
 
-
-try() {
-	if [[ "$TOGGLECOLOR" == "$TOGGLECOLOR1" ]]; then
-		TOGGLECOLOR=$TOGGLECOLOR2
-	else
-		TOGGLECOLOR=$TOGGLECOLOR1
-	fi
-	set +e
-	bash -c "$1"
-	if [[ $? != 0 ]]; then
-		if [[ $2 != "ignore" ]]; then
-			echo -ne "\033[1m"
-			echo -e "Error running '$1'"
-			exit 1
-		else
-			echo -ne "\033[2m"
-			echo "Ignoring error while trying '$1'"
-		fi
-		echo -ne "\033[0m"
-	fi
-	set -e
-}
 
 NOCOMMANDS=1
 PATCHCMDS=$(find $CMDSDIR -name "patchcmd*" | sort -V)
