@@ -126,6 +126,10 @@ note, pressing enter to proceed to the next step is optional. the next instructi
 # USAGE TIPS
 there is no need to manually press enter to run each command, each command will execute after a short timeout (as long as the previous did not report an error)
 
+check the file $LFS/sources/journal to see the packages have been installed and in what order (useful to find a skipped package)
+
+**some instructions may require you to reclassify commands in an order different from that read. the categorization [:letter:]cmd is only a guideline but order is always preserved: patchcmd, cmd, tcmd, scmd, pcmd. tcmd is treated specially to ignore errors but this may not be needed anyway and test commands can be run in another category then output reviewed in the script file. if in doubt, using cmd only is okay. again, only order is important and the rest is mostly just to help divide the instructions to help the reader follow along better**
+
 to reinstall a package simply untar and run _mklfscmd_ in the package dir. the cmds from before will be preserved and the directory will change as expected to the package cmds directory.
 
 only source _s_f_ once (not needed again)
