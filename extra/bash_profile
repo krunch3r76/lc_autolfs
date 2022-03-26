@@ -1,10 +1,16 @@
 # add these lines to /root/.bash_profile
+# alternatively,
+#  source $LFS/sources/lc_autolfs/extra/bash_profile
+#  from /root/.bash_profile
 export MAKEFLAGS=-j7
-source /sources/lc_autolfs/s_f
+source $LFS/sources/lc_autolfs/s_f
+cd $LFS/sources
 # invoke autolfs from the .cmds directory to go straight to install without cd
 function autolfs {
 	cd ..
 	./install.sh
-	if [[ $? = 0 ]]; then popd; fi
+	grep --color FAIL script
+	if [[ $? = 0 ]]; then popd 2>/dev/null; fi
+	if [[ ! $? = 0 ]]; then cd $LFS/sources; fi
 }
 echo "hello worlds"
