@@ -1,17 +1,20 @@
 #!/bin/bash
 # invoke with binary script as from another file (install.sh) inside CMDSROOT
-# V1.19
+# V1.20
 
 PKGNAME=$(basename $PWD)
 CMDSROOT="$LFS/sources/cmds/$PKGNAME"
 CMDSDIR="$CMDSROOT/.cmds"
 CMDSRUNFP="$CMDSROOT/cmdsrun"
 IGNORE_ERRORS=0
+IGNORE_POST_ERRORS=0
 OPT=$1
 
 set -e
 if [[ "$OPT" == "ignore" ]]; then
 	IGNORE_ERRORS=1
+elif [[ "$OPT" == "ignorepost" ]]; then
+	IGNORE_POST_ERRORS=1
 fi
 TOGGLECOLOR1="\033[32m"
 TOGGLECOLOR2="\033[33m"
@@ -116,12 +119,18 @@ fi
 
 
 PCMDS=$(find $CMDSDIR -name "pcmd*" | sort -V)
+if [[ $IGNORE_POST_ERRORS != 0 ]]; then
+	echo -e "\033[1mignoring errors on post configuration commands\033[0m"
+fi
+IGNORE_ERRORS_SAVE=$IGNORE_ERRORS
+IGNORE_ERRORS=$IGNORE_POST_ERRORS
 if [[ -n "$PCMDS" ]]; then
 	NOCOMMANDS=0
 	for pcmd in $PCMDS; do
 		runscript $(basename $pcmd) "sudo"
 	done
 fi
+IGNORE_ERRORS=$IGNORE_ERRORS_SAVE
 
 if [[ $NOCOMMANDS == 0 ]]; then
 	set +e

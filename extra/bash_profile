@@ -7,10 +7,36 @@ source $LFS/sources/lc_autolfs/s_f
 cd $LFS/sources
 # invoke autolfs from the .cmds directory to go straight to install without cd
 function autolfs {
+	OPT=$1
+	ZEROTEST_SHOPT_ENABLED=$(shopt extglob)
+	shopt -s extglob
 	cd ..
-	./install.sh
-	grep --color FAIL script
-	if [[ $? = 0 ]]; then popd 2>/dev/null; fi
-	if [[ ! $? = 0 ]]; then cd $LFS/sources; fi
+	./install.sh $OPT
+	INSTALL_EXIT_STATUS=$?
+	FAILGREP=$(grep -E --line-number --color=always \<FAIL script)
+	if [[ $? != 1 ]]; then
+		# TODO LINENUM
+		echo "grep FAIL script returned these matches"
+		echo "---------------------------------------"
+		echo "$FAILGREP"
+		echo "---------------------------------------"
+	fi
+	if [[  $INSTALL_EXIT_STATUS == 0 ]]; then
+		echo -e "\n\/\/ /sources/journal \/\/"
+		tail -n3 $LFS/sources/journal | grep -B2 --color=always $(basename $PWD)
+		echo -E "/\/\ /sources/journal /\\/\\"
+
+		# echo "$TAIL_JOURNAL"
+		echo -e "\nno errors (excluding test commands),"
+		echo "you can review cmdsrun or script now here"
+		echo "or return to the sources directory to move on."
+		echo -e "currently in \033[1m$PWD\033[0m"
+		read -N1 -p "return to sources directory [y]? "
+		if [[ "$REPLY" != +([nN]) ]]; then popd 2>/dev/null
+			if [[ ! $? == 0 ]]; then cd $LFS/sources; fi
+		fi
+		echo ""
+	fi
+	if [[ $ZEROTEST_SHOPT_ENABLED != 0 ]]; then shopt -u extglob; fi
 }
-echo "hello worlds"
+echo "lc_autolfs: hello worlds"

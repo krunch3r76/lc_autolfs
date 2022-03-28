@@ -117,8 +117,8 @@ EOF
 note, pressing enter to proceed to the next step is optional. the next instruction will execute after a short timeout without having to press enter each time.
 ## after a successful run, review
 ```bash
-/sources/cmds/sysklogd-1.5.1# more cmdsruns
-/sources/cmds/sysklogd-1.5.1# more script
+/sources/cmds/sysklogd-1.5.1# less -r cmdsruns
+/sources/cmds/sysklogd-1.5.1# less -r script
 /sources/cmds/sysklogd-1.5.1# tail /sources/journal # chronological entries of pkgs installed (one per line)
 /sources/cmds/sysklogd-1.5.1# popd
 /sources# 
