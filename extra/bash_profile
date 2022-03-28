@@ -13,7 +13,7 @@ function autolfs {
 	cd ..
 	./install.sh $OPT
 	INSTALL_EXIT_STATUS=$?
-	FAILGREP=$(grep -E --line-number --color=always \<FAIL script)
+	FAILGREP=$(grep -E --line-number --color=always "\<FAIL" script)
 	if [[ $? != 1 ]]; then
 		# TODO LINENUM
 		echo "grep FAIL script returned these matches"
