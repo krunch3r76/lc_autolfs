@@ -13,6 +13,13 @@ https://user-images.githubusercontent.com/46289600/155764359-e4356bfb-6dfc-46d8-
 
 this video demonstrates (patchcmd), cmd, scmd, (tcmd), and pcmd or all expanded: (patch commands), build commands, install commands, (test commands), and post configuration commands respectively. if there were patch commands, patchcmd1,2,3 would have been used or for tests tcmd1,2,3 etc. described in detail below
 
+
+https://user-images.githubusercontent.com/46289600/160486738-6e890995-4663-4085-b209-038a3ff635c8.mp4
+
+this video demonstrates the extra feature utilized by copying or linking to .bash_profile. not shown: extra shows test failures when applicable after the run.
+
+
+
 # USAGE
 refer to https://www.linuxfromscratch.org/lfs/view/stable/chapter08/sysklogd.html to follow along with the examples
 
