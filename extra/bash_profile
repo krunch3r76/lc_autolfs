@@ -2,7 +2,7 @@
 # alternatively,
 #  source $LFS/sources/lc_autolfs/extra/bash_profile
 #  from /root/.bash_profile
-export MAKEFLAGS=-j7
+# export MAKEFLAGS=-j7
 source $LFS/sources/lc_autolfs/s_f
 cd $LFS/sources
 # invoke autolfs from the .cmds directory to go straight to install without cd
