@@ -45,7 +45,7 @@ runscript() {
         if [[ -v $sudo ]]; then
                 if [[ $(command -v sudo) ]]; then
                         echo "ABOUT TO SUDO"
-                        srccmd="sudo PATH=$PATH:/usr/sbin -E bash"
+                        srccmd="sudo PATH=$PATH:/usr/sbin bash"
                 fi
         fi
 
