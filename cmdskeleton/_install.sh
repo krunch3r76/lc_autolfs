@@ -1,6 +1,6 @@
 #!/bin/bash
 # invoke with binary script as from another file (install.sh) inside CMDSROOT
-# V1.20
+# V1.20=1
 
 PKGNAME=$(basename $PWD)
 CMDSROOT="$LFS/sources/cmds/$PKGNAME"
@@ -42,18 +42,20 @@ runscript() {
 
 
 	srccmd="source"
-        if [[ -v $sudo ]]; then
-                if [[ $(command -v sudo) ]]; then
-                        echo "ABOUT TO SUDO"
-                        srccmd="sudo PATH=$PATH:/usr/sbin bash"
-                fi
-        fi
+	if [[ -v $sudo ]]; then
+		if command -v sudo >/dev/null; then
+			echo "ABOUT TO SUDO"
+			sudocmd() { sudo -E bash -c "source \"$1\""; }
+			srccmd=sudocmd
+			# srccmd="sudo -E bash -c source"
+		fi
+	fi
 
 	echo -e "$TOGGLECOLOR" >>$CMDSRUNFP
 	cat $CMDSDIR/$sourcefile >>$CMDSRUNFP
 	echo -e "\033[0m" >>$CMDSRUNFP
 
-	$srccmd $CMDSDIR/$sourcefile
+	$srccmd "$CMDSDIR/$sourcefile"
 	if [[ $? != 0 ]]; then
 		echo -e "\033[1m" >>$CMDSRUNFP
 		echo "cmd failed"
