@@ -1,11 +1,22 @@
-# add these lines to /root/.bash_profile
+# add these lines to /root/.bash_profile or to the .bash_profile of user building from source
 # alternatively,
 #  source $LFS/sources/lc_autolfs/extra/bash_profile
 #  from /root/.bash_profile
 # export MAKEFLAGS=-j7
 source $LFS/sources/lc_autolfs/s_f
 cd $LFS/sources
-# invoke autolfs from the .cmds directory to go straight to install without cd
+
+# Function to invoke the autolfs installation process.
+# Arguments:
+#   - OPT: An optional argument to pass to the install.sh script (e.g., install options).
+# Returns:
+#   - Echoes messages about the installation process, including successful matches, errors, and any failure details.
+#   - Allows the user to return to the sources directory after installation.
+# Description:
+#   This function starts the autolfs installation by invoking the `install.sh` script from the parent directory,
+#   checks for any failed installation steps by grepping for failure indicators, and provides feedback to the user.
+#   It also allows users to return to the sources directory after installation to continue their work.
+
 function autolfs {
 	OPT=$1
 	ZEROTEST_SHOPT_ENABLED=$(shopt extglob)
@@ -39,4 +50,110 @@ function autolfs {
 	fi
 	if [[ $ZEROTEST_SHOPT_ENABLED != 0 ]]; then shopt -u extglob; fi
 }
+
+# Function to search for terms in the /sources/journal file and display matching lines.
+# Arguments:
+#   - A list of search terms to find in the /sources/journal file.
+# Returns:
+#   - Echoes the matching lines found in the journal for each term, or an error message if no matches are found.
+#   - Displays a list of search terms that had no matches.
+# Description:
+#   This function searches for the specified terms in the /sources/journal file. If matches are found, they are
+#   displayed; otherwise, a message is shown for failed terms. The function supports multiple search terms and 
+#   handles case-insensitive, exact string searches.
+
+checkfor() {
+    if [[ $# -eq 0 ]]; then
+        echo "No search terms provided."
+        return 1
+    fi
+
+    local successful_matches=()  # Array to store matching lines
+    local failed_matches=()      # Array to store failed search terms
+
+    for term in "$@"; do
+        local matches=$(grep -i -F "$term" /sources/journal)  # Case-insensitive search for exact matches
+        if [[ -n $matches ]]; then
+            successful_matches+=("$matches")  # Store successful matches
+        else
+            failed_matches+=("$term")  # Store failed terms
+        fi
+    done
+
+    if [[ ${#successful_matches[@]} -gt 0 ]]; then
+        echo "Successful matches:"
+        printf "%s\n" "${successful_matches[@]}"  # Print all successful matches
+    else
+        echo "No matches found in the journal."
+    fi
+
+    if [[ ${#failed_matches[@]} -gt 0 && ${failed_matches[0]} ]]; then
+        echo "Failed matches:"
+        printf "%s\n" "${failed_matches[@]}"  # Print failed terms
+    fi
+
+    if [[ ${#failed_matches[@]} -eq 0 && ${#successful_matches[@]} -gt 0 ]]; then
+        echo -e "\033[1mAll matches were found.\033[0m"  # If all terms match, print success message
+    fi
+}
+
+# Function to search for terms in the /boot/config file and display matching lines.
+# Arguments:
+#   - A list of search terms to find in the /boot/config file.
+# Returns:
+#   - Echoes the matching lines found in the /boot/config file for each term, or an error message if no matches are found.
+#   - Displays a list of search terms that had no matches.
+# Description:
+#   This function searches for the specified terms in the /boot/config file. If matches are found, they are displayed;
+#   otherwise, a message is shown for failed terms. It performs case-insensitive searches and looks for exact word matches.
+
+configcheck() {
+    if [[ $# -eq 0 ]]; then
+        echo "No search terms provided."
+        return 1
+    fi
+
+    local successful_matches=()  # Array to store matching lines
+    local failed_matches=()      # Array to store failed search terms
+
+    for term in "$@"; do
+        local matches=$(grep -i -w -F "$term" /boot/config)  # Case-insensitive, exact word search
+        if [[ -n $matches ]]; then
+            successful_matches+=("$matches")  # Store successful matches
+        else
+            failed_matches+=("$term")  # Store failed terms
+        fi
+    done
+
+    if [[ ${#successful_matches[@]} -gt 0 ]]; then
+        echo "Successful matches:"
+        printf "%s\n" "${successful_matches[@]}"  # Print all successful matches
+    else
+        echo "No matches found in the journal."
+    fi
+
+    if [[ ${#failed_matches[@]} -gt 0 && ${failed_matches[0]} ]]; then
+        echo "Failed matches:"
+        printf "%s\n" "${failed_matches[@]}"  # Print failed terms
+    fi
+
+    if [[ ${#failed_matches[@]} -eq 0 && ${#successful_matches[@]} -gt 0 ]]; then
+        echo -e "\033[1mAll matches were found.\033[0m"  # If all terms match, print success message
+    fi
+}
+
+# Function to change to the specified directory and run the mklfscmd function.
+# Arguments:
+#   - A directory path to change to.
+# Returns:
+#   - Changes to the specified directory and runs the mklfscmd command in that directory.
+# Description:
+#   This function changes the current working directory to the one specified by the user and runs the `mklfscmd` command
+#   in that directory. It assumes that `mklfscmd` is defined elsewhere in the environment.
+
+lcd () 
+{ 
+    cd $1 && mklfscmd  # Change directory and run mklfscmd
+}
+
 echo "lc_autolfs: hello worlds"
